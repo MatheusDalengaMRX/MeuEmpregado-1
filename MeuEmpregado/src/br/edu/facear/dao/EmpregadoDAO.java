@@ -42,7 +42,11 @@ public class EmpregadoDAO implements InterfaceDAO<Empregado>{
 	@Override
 	public Empregado filtrarEmpregado(Integer id) {
 		Empregado empregado = new Empregado();
-		//Por enquanto desconhecido como fazer
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		empregado = em.find(Empregado.class, id);
+		em.getTransaction().commit();
+		em.close();
 		return empregado;
 	}
 }
