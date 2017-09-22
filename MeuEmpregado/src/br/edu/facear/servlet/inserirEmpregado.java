@@ -51,7 +51,7 @@ public class inserirEmpregado extends IndexServlet {
 		String sexo = request.getParameter("sexo");
 		
 		EmpregadoService se = new EmpregadoService();
-		Empregado e = new Empregado(0, nome_completo, data_nascimento, cpf, rg, telefone_fixo, telefone_celular, cep, endereco_rua, Integer.parseInt(numero), complemento, bairro, cidade, email, senha, uf, Boolean.parseBoolean(sexo));
+		Empregado e = new Empregado(nome_completo, data_nascimento, cpf, rg, telefone_fixo, telefone_celular, cep, endereco_rua, Integer.parseInt(numero), complemento, bairro, cidade, email, senha, uf, Boolean.parseBoolean(sexo));
 		se.cadastrarEmpregado(e);
 		
 		redirecionar(request, response);

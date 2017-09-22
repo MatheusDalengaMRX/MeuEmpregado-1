@@ -40,10 +40,10 @@ public class Empregado {
 	public Integer getId() {
 		return id;
 	}
-	
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getNome_completo() {
 		return nome_completo;
 	}
@@ -150,11 +150,9 @@ public class Empregado {
 				+ ", senha=" + senha + ", uf=" + uf + ", sexo=" + sexo + "\n";
 	}
 	
-	public Empregado(Integer id, String nome_completo, String data_nascimento, String cpf, String rg,
+	public Empregado(String nome_completo, String data_nascimento, String cpf, String rg,
 			String telefone_fixo, String telefone_celular, String cep, String endereco_rua, Integer numero,
 			String complemento, String bairro, String cidade, String email, String senha, String uf, Boolean sexo) {
-		super();
-		this.id = id;
 		this.nome_completo = nome_completo;
 		this.data_nascimento = data_nascimento;
 		this.cpf = cpf;
@@ -172,7 +170,30 @@ public class Empregado {
 		this.uf = uf;
 		this.sexo = sexo;
 	}
-
+	
+	public Empregado(Integer id, String data_nascimento, String nome_completo, String cpf, String rg,
+			String telefone_fixo, String telefone_celular, String cep, String endereco_rua, Integer numero,
+			String complemento, String bairro, String cidade, String email, String senha, String uf, Boolean sexo) {
+		super();
+		this.id = id;
+		this.data_nascimento = data_nascimento;
+		this.nome_completo = nome_completo;
+		this.cpf = cpf;
+		this.rg = rg;
+		this.telefone_fixo = telefone_fixo;
+		this.telefone_celular = telefone_celular;
+		this.cep = cep;
+		this.endereco_rua = endereco_rua;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.email = email;
+		this.senha = senha;
+		this.uf = uf;
+		this.sexo = sexo;
+	}
+	
 	public Empregado() {
 		
 	}
