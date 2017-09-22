@@ -1,3 +1,5 @@
+//Implementando FACADE
+
 package br.edu.facear.dao;
 
 import java.util.List;
@@ -7,12 +9,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 
 import br.edu.facear.model.Empregado;
-import br.edu.facear.util.HibernateConexao;
-import br.edu.facear.util.InterfaceDAO;
+import br.edu.facear.util.HibernateUtil;
+import br.edu.facear.util.EmpregadoFacade;
 
-public class EmpregadoDAO implements InterfaceDAO<Empregado>{
+public class EmpregadoDAO implements EmpregadoFacade<Empregado>{
 
-	EntityManagerFactory emf = HibernateConexao.getInstance();
+	EntityManagerFactory emf = HibernateUtil.getInstance();
 	
 	@Override
 	public void cadastrar(Empregado t) {
@@ -45,6 +47,17 @@ public class EmpregadoDAO implements InterfaceDAO<Empregado>{
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		empregado = em.find(Empregado.class, id);
+		em.getTransaction().commit();
+		em.close();
+		return empregado;
+	}
+	
+	@Override
+	public Empregado filtrarEmpregadoNome(String nome_completo) {
+		Empregado empregado = new Empregado();
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		empregado = em.find(Empregado.class, nome_completo);
 		em.getTransaction().commit();
 		em.close();
 		return empregado;

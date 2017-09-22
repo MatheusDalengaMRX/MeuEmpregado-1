@@ -19,10 +19,8 @@ public class Empregado {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id",unique=true,nullable=false)
 	private Integer id;
-		
-	@Temporal(TemporalType.DATE)
-	private Date data_nascimento;
 	
+	private String data_nascimento;
 	private String nome_completo;
 	private String cpf;
 	private String rg;
@@ -136,10 +134,10 @@ public class Empregado {
 	public void setSexo(Boolean sexo) {
 		this.sexo = sexo;
 	}
-	public Date getData_nascimento() {
+	public String getData_nascimento() {
 		return data_nascimento;
 	}
-	public void setData_nascimento(Date data_nascimento) {
+	public void setData_nascimento(String data_nascimento) {
 		this.data_nascimento = data_nascimento;
 	}
 
@@ -152,7 +150,7 @@ public class Empregado {
 				+ ", senha=" + senha + ", uf=" + uf + ", sexo=" + sexo + "\n";
 	}
 	
-	public Empregado(Integer id, String nome_completo, Date data_nascimento, String cpf, String rg,
+	public Empregado(Integer id, String nome_completo, String data_nascimento, String cpf, String rg,
 			String telefone_fixo, String telefone_celular, String cep, String endereco_rua, Integer numero,
 			String complemento, String bairro, String cidade, String email, String senha, String uf, Boolean sexo) {
 		super();

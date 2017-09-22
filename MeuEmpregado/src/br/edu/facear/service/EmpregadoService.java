@@ -1,3 +1,5 @@
+//SINGLETON e Implementação do FACADE
+
 package br.edu.facear.service;
 
 import java.util.List;
@@ -6,12 +8,13 @@ import org.hibernate.HibernateException;
 
 import br.edu.facear.dao.EmpregadoDAO;
 import br.edu.facear.model.Empregado;
+import br.edu.facear.util.EmpregadoFacade;
 
-public class service_Empregado {
+public class EmpregadoService {
 
-	private EmpregadoDAO eDao;
+	private EmpregadoFacade<Empregado> eDao;
 	
-	public service_Empregado() {
+	public EmpregadoService() {
 		eDao = new EmpregadoDAO();
 	}
 	
@@ -35,5 +38,7 @@ public class service_Empregado {
 	public Empregado filtrarEmpregado(Integer id) throws HibernateException{
 		return eDao.filtrarEmpregado(id);
 	}
-	
+	public Empregado filtrarEmpregadoNome(String nome_completo) throws HibernateException{
+		return eDao.filtrarEmpregadoNome(nome_completo);
+	}
 }
